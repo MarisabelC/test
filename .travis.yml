@@ -5,3 +5,12 @@ services:
 script:
   - docker build -t marisabel/node .
   - docker images marisabel/node
+
+before_deploy:
+  - docker login -u marisabelC -p Toshiba1!
+
+deploy:
+  provider: script
+  script: docker push marisabel\node
+  on: 
+    branch: master
