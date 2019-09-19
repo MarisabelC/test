@@ -3,14 +3,14 @@ services:
   - docker
 
 script:
-  - docker build -t marisabel/node .
-  - docker images marisabel/node
+  - docker build -t marisabelc/node .
+  - docker images marisabelc/node
 
 before_deploy:
   - docker login -u $dockerUserName -p $dockerPass
 
 deploy:
   provider: script
-  script: docker push marisabel/node
+  script: docker push marisabelc/node
   on: 
     branch: master
